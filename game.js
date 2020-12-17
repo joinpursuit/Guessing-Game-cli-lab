@@ -6,8 +6,21 @@ const rls = require('readline-sync')
  * 
  * @returns {undefined}
  */
-const startGame = () => {
 
+ // prompt user if they want to play
+ // if yes 
+ // console log "Let's start!"
+ // call gameLoop()
+ // else 
+ // call quitGame()
+const startGame = () => {
+  if (rls.keyInYN("Want to play a game?")){
+    console.log("Let's start!")
+    gameLoop()
+} else {
+    console.log("Have a nice life!")
+    quitGame()
+}
 }
 
 /**
@@ -17,6 +30,8 @@ const startGame = () => {
  * @returns {undefined}
  */
 const quitGame = () => {
+  console.log('Goodbye!')
+  process.exit()
 
 }
 
@@ -28,6 +43,14 @@ const quitGame = () => {
  * @returns {undefined}
  */
 const gameLoop = () => {
+    console.log("I have a random number in mind")
+    console.log("It's between 1 and 1000")
+    console.log("You have 10 guesses")
+
+    let num = generateRandomNumber()
+    rls.questionInt("What is your guess?")
+
+
 
 }
 
