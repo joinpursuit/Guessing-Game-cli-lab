@@ -39,32 +39,41 @@ const gameLoop = () => {
   let count = 10
   let countMax = count
   let guess = 0
+  let min = 1
+  let max = 1000
 
   if(process.argv.length >= 3){
     count = parseInt(process.argv[2])
     countMax = count
   }
+  if(process.argv.length >= 5){
+    min = parseInt(process.argv[3])
+    max = parseInt(process.argv[4])
+  } else if(process.argv.length === 4)
+      min = parseInt(process.argv[3])
+      
   console.log("I have a random number in mind")
-  console.log("It's between 1 and 1000")
-  console.log(`You have ${count} guesses total`)
+  console.log(`It's between ${min} and ${max}`)
+  console.log(`You have ${count} ${count > 1 ? "guesses" : "guess"} total\n`)
   for(let i = count; i > 0; i--){
     console.log("Please enter your guess: ")
     guess = rls.questionInt()
     if(guess === n){
       if(i === countMax)
-        console.log("Congrats!!! You got it in first try!!!")
+        console.log("Congrats!!! You got it in first try!!!\n")
       else
-        console.log("Congrats! You got it right!")
+        console.log("Congrats! You got it right!\n")
       break
     }
     guess > n ? console.log("Your guess is too high") : console.log("Your guess is too low")
-    if(!(rls.keyInYN("Do you want to try again?")))
-      quitGame()
     count--
-    console.log(`You have ${count} ${count > 1 ? "chances" : "chance"} left`)
+    console.log(`You have ${count} ${count > 1 ? "chances" : "chance"} left\n`)
+    if(count !== 0){
+      if(!(rls.keyInYN("Do you want to try again?")))
+        quitGame()
+    } else
+        console.log("You lose!\n")
   }
-  if(count === 0)
-    console.log("You lose!")
   if(rls.keyInYN("Do you want to play again?"))
     gameLoop()
   else
@@ -78,15 +87,16 @@ const gameLoop = () => {
  * @returns {number} - a number between 1 and 1000
  */
 const generateRandomNumber = () => {
-  let min = 0
+  let min = 1
   let max = 1000
   
-  if(process.argv.length === 5){
+  if(process.argv.length >= 5){
     min = parseInt(process.argv[3])
     max = parseInt(process.argv[4])
   } else if(process.argv.length === 4)
       min = parseInt(process.argv[3])
-  return Math.floor(Math.random() * (max - min )) + min
+
+  return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
 startGame()
