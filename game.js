@@ -6,14 +6,15 @@ const rls = require('readline-sync')
  * 
  * @returns {undefined}
  */
+
 const startGame = () => {
-console.log("Welcome")
+console.log("Welcome!")
 if(rls.keyInYN("Would you like to play?")){
-  console.log("Let's play!")
+  console.log("Let's start!")
   gameLoop()
-}else{
-  console.log("Have a nice day")
-  quitGame
+} else {
+  console.log("Have a nice life!")
+  quitGame()
 }
 }
 
