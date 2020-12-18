@@ -43,16 +43,31 @@ const quitGame = () => {
  * @returns {undefined}
  */
 const gameLoop = () => {
-    console.log("I have a random number in mind")
-    console.log("It's between 1 and 1000")
-    console.log("You have 10 guesses")
+  console.log("I have a random number in mind")
+  console.log("It's between 1 and 1000")
+  console.log("You have 10 guesses total")
+    
+  for (let guessCount = 10 ; guessCount > 0 ; guessCount--){  
 
     let num = generateRandomNumber()
-    rls.questionInt("What is your guess?")
+    let guess = rls.questionInt("What is your guess? \n")
+    
+    if (guessCount === 1 && guess !== num) { 
+      console.log("You Lose!")
+      quitGame()
+     } else if (guess === num) {
+      console.log("Congrats! You got it right! \n")
+      (rls.keyInYN("Want to play again?"))
+          gameLoop()
+      } else if (guess > num){
+      console.log("Your guess is too high")
+      } else if (guess < num){
+      console.log("Your guess is too low")
+      } 
+      
 
-
-
-}
+    } 
+  } 
 
 
 /***
@@ -61,7 +76,8 @@ const gameLoop = () => {
  * @returns {number} - a number between 1 and 1000
  */
 const generateRandomNumber = () => {
-
+  let num = Math.floor(Math.random() * 1000) + 1
+  return num 
 }
 
 startGame()
