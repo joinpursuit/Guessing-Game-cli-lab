@@ -7,7 +7,23 @@ const rls = require('readline-sync')
  * @returns {undefined}
  */
 const startGame = () => {
+  // prompt user if they want to play
+  // if yes
+  // console.log("Let's Start")
+  // call gameLoop()
+  // else
+  // call quitGame()
+  console.log("Welcome!")
 
+  let answer = rls.keyInYN("Ready?")
+  if(answer) {
+    console.log("Let's start!")
+    gameLoop()
+  } 
+  else {
+    console.log("Have a nice life!")
+    quitGame()
+  }
 }
 
 /**
@@ -17,7 +33,8 @@ const startGame = () => {
  * @returns {undefined}
  */
 const quitGame = () => {
-
+  console.log("Goodbye!")
+  process.exit()
 }
 
 /**
@@ -28,7 +45,10 @@ const quitGame = () => {
  * @returns {undefined}
  */
 const gameLoop = () => {
-
+  console.log("I have a random number in mind")
+  console.log("It's between 1 and 1000")
+  console.log("You have 10 guesses total")
+  console.log("Play again")
 }
 
 
@@ -38,10 +58,12 @@ const gameLoop = () => {
  * @returns {number} - a number between 1 and 1000
  */
 const generateRandomNumber = () => {
-
+  let randNum = Math.floor(Math.random() * 1000)
+  return randNum
 }
 
 startGame()
+generateRandomNumber()
 
 module.exports = {
   startGame,
