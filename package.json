@@ -14,5 +14,14 @@
     "jest": "^26.6.1",
     "mock-stdin": "^1.0.0",
     "readline-sync": "^1.4.10"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mohsinali678/Guessing-Game-cli-lab.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mohsinali678/Guessing-Game-cli-lab/issues"
+  },
+  "homepage": "https://github.com/mohsinali678/Guessing-Game-cli-lab#readme"
 }
