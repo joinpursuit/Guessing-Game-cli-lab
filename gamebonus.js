@@ -1,5 +1,4 @@
 const rls = require('readline-sync');
-const process = require('process');
 
 /**
  * Starts the game by prompting the user if they want to play
@@ -10,7 +9,7 @@ const process = require('process');
 const startGame = () => {
   if(rls.keyInYN("Ready?")){
     console.log("Let's start!");
-    gameLoop(process.argv[2], process.argv[3], process.argv[4]);
+    gameLoop(parseInt(process.argv[2]), parseInt(process.argv[3]), parseInt(process.argv[4]));
   }else{
     console.log("Have a nice life!")
     quitGame();
@@ -35,33 +34,6 @@ const quitGame = () => {
  * 
  * @returns {undefined}
  */
-// const gameLoop = () => {
-//   let rand, guess, guessCount;
-//   rand = generateRandomNumber();
-//   console.log("I have a random number in mind");
-//   console.log("It's between 1 and 1000");
-//   guessCount = 10;
-//   console.log(`You have 10 guesses total`);
-  
-//   while(guessCount >= 1){
-//   guess = rls.questionInt("Enter a guess.")
-//   if(guess === rand){
-//     console.log("Congrats! You got it right!")
-//     rls.keyInYN("Want to Play again?") ? gameLoop() : quitGame();
-//   }else if(guess > rand){
-//     console.log("Your guess is too high");
-//   }else{
-//     console.log("Your guess is too low");
-//   }
-//   guessCount -= 1;
-//   console.log(`You have ${guessCount} remaining guesses.`);
-// }
-// if(guessCount === 0){
-//   console.log("You lose!")
-//   quitGame();
-// }
-
-// }
 
 const gameLoop = (guessCount = 10, min, max) => {
     let guess;
@@ -97,7 +69,7 @@ const gameLoop = (guessCount = 10, min, max) => {
  * @returns {number} - a number between 1 and 1000
  */
 function generateRandomNumber(min, max) {
-  let i =  Math.round( Math.random()*(max - min + 1) + min);
+  let i =  Math.floor(Math.random() * (max - min + 1) + min);
   console.log(i);
   return i;
 }

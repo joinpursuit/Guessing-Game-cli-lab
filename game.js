@@ -1,5 +1,4 @@
 const rls = require('readline-sync');
-const process = require('process');
 
 /**
  * Starts the game by prompting the user if they want to play
@@ -70,7 +69,7 @@ if(guessCount === 0){
  * @returns {number} - a number between 1 and 1000
  */
 function generateRandomNumber() {
-  let i =  Math.round( Math.random() * 1001);
+  let i =  Math.round( Math.random() * 1000)+1;
   console.log(i);
   return i;
 }
