@@ -7,11 +7,6 @@ const rls = require('readline-sync')
  * @returns {undefined}
  */
 const startGame = () => {
-  // console.log("Thank you for playing the ultimate guessing game.");
-  // console.log("I, the computer, will start with picking a number between 1 and 10,000");
-  // console.log("If You don't guess my number in 15 guesses or less I win");
-  // console.log("If you do, you win");
-  // console.log("With each guess I will tell you if you are too high or too low");
   if(rls.keyInYN('Want to play a game?')){
     console.log('Let\'s start!');
     gameLoop();
