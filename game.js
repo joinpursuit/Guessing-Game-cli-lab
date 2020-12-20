@@ -49,8 +49,6 @@ const gameLoop = () => {
   console.log("You have 10 guesses total")
 
   const rnumber = Math.ceil(generateRandomNumber())
-  console.log(rnumber)
-
 
   for (let num = 0; num <= 9; num += 1) {
     let answer = rls.questionInt("Guess the number: ")
