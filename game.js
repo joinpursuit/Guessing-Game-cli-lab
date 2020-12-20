@@ -47,10 +47,13 @@ console.log("You have 10 guesses total")
  * @returns {number} - a number between 1 and 1000
  */
 const generateRandomNumber = () => {
-  let bottom = 1
-  let top = 1000
- let guess = Math.floor(Math.random() * top) + bottom
+  let min = 1
+  let max = 1000
+  let guessCount = 15
+  while(guessCount > 0) {
+ let guess = Math.floor(Math.random() * max) + min
  return guess
+  }
 }
 
 startGame()
