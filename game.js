@@ -7,7 +7,9 @@ const rls = require('readline-sync')
  * @returns {undefined}
  */
 const startGame = () => {
-
+  if (rls.keyInYN("Ready to play? Y or N")) {
+    console.log
+  }
 }
 
 /**
