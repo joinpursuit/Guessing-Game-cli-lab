@@ -53,7 +53,11 @@ const gameLoop = () => {
  *
  * @returns {number} - a number between 1 and 1000
  */
-const generateRandomNumber = () => {};
+const generateRandomNumber = () => {
+  let bottom = 1;
+  let top = 1000;
+  return Math.floor(Math.random() * (top - bottom) + bottom);
+}
 
 startGame();
 
