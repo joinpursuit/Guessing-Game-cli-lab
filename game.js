@@ -8,11 +8,11 @@ const readLineSync = require("readline-sync");
  */
 const startGame = () => {
     if (readLineSync.keyInYN("Do you want to play?")) {
-      console.log("Let's Start!");
+      console.log("Let's start!");
       gameLoop();
     } else {
       console.log("Have a nice life!");
-      quitGame(false);
+      quitGame();
     }
 }
 
@@ -24,6 +24,8 @@ const startGame = () => {
  * @returns {undefined}
  */
 const quitGame = () => {
+  console.log("Goodbye!")
+  process.exit()
 
 };
 
@@ -34,7 +36,17 @@ const quitGame = () => {
  *
  * @returns {undefined}
  */
-const gameLoop = () => {};
+const gameLoop = () => {
+   {
+    console.clear();
+    console.log("I have a random number in mind");
+    console.clear();
+    console.log("It's between 1 and 1000")
+    console.clear();
+    console.log("You have 10 guesses total")
+    console.clear();
+  }
+}
 
 /***
  * Generates a random number
