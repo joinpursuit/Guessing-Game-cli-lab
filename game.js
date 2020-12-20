@@ -92,7 +92,7 @@ const gameOver = humanWins => {
  *
  * @returns {number} - a number between 1 and 1000
  */
-const generateRandomNumber = (min, max) => {
+const generateRandomNumber = (min = 1, max = 1000) => {
   let num = Math.floor(Math.random() * (max - min + 1) + min);
   console.log(num); // tested to make sure random *totally random number*
   return num;
