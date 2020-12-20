@@ -23,8 +23,9 @@ const startGame = () => {
  * @returns {undefined}
  */
 const quitGame = () => {
-
-}
+    console.log("Goodbye!")
+    process.exit()
+  }
 
 /**
  * Controls the flow of the game.
