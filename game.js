@@ -11,7 +11,8 @@ max = myArgs[2];
  * 
  * @returns {undefined}
  */
-const startGame = (guessCount, min, max) => {
+const startGame = (guessCount = 10, min = 1, max = 1000) => {
+
   if(rls.keyInYN('Want to play a game?')){
     console.log('Let\'s start!');
     gameLoop(guessCount, min, max);
@@ -79,7 +80,7 @@ const gameOver = humanWins => {
   }  
   if(rls.keyInYN('Want to play again?')){
     console.log('Let\'s start!');
-    gameLoop();
+    gameLoop(guessCount, min, max);
   }else{
     console.log('Have a nice life!');
     quitGame();
@@ -93,7 +94,7 @@ const gameOver = humanWins => {
  */
 const generateRandomNumber = (min, max) => {
   let num = Math.floor(Math.random() * (max - min + 1) + min);
-  // console.log(num); // tested to make sure random *totally random number*
+  console.log(num); // tested to make sure random *totally random number*
   return num;
 }
 
