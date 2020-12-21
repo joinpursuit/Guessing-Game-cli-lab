@@ -42,6 +42,7 @@ console.log("I have a random number in mind")
 console.log("It's between 1 and 1000")
 console.log("You have 10 guesses total")
 
+
 let user = rls.keyInYN("Do you wannt to play again!\n")
   if(user){
     console.log('Play')
@@ -49,28 +50,25 @@ let user = rls.keyInYN("Do you wannt to play again!\n")
     console.log('Bye')
     quitGame()
   }
-   
-    
-let generateRandomNumber = Math.random()
-let answer = rls.questionInt(" Pick a number! \n")
+     
+let randomNumber = generateRandomNumber()
 
-for (let answer = 1; answer <= generateRandomNumber; answer+1){
-  console.log("Congrats! You got it right!" )
- } if (((answer %2) ==0) <= generateRandomNumber) {
+for (let guess = 10; guess > 0; guess--){
+ let answer = rls.questionInt(" Pick a number! \n")
+  if (answer > randomNumber) {
      console.log("Your guess is too high" )
-  } else if(((answer %2) ==1)>= generateRandomNumber){
+  } else if(answer < randomNumber){
        console.log("Your guess is too low")
-    } else if(((answer %2) ==0)=== generateRandomNumber){
+    } else if(answer === randomNumber){
          console.log("Congrats! You got it right!")
         } else {
-            console.log(user)
+            console.log("You lose!")
             quitGame()
           }
-
-
+                   
 }
 
-
+}
 
 /***
  * Generates a random number 
@@ -78,7 +76,7 @@ for (let answer = 1; answer <= generateRandomNumber; answer+1){
  * @returns {number} - a number between 1 and 1000
  */
 const generateRandomNumber = () => {
-  return Math.round(Math.random()*1000)
+  return Math.ceil(Math.random()*1000)
 
 }
 
