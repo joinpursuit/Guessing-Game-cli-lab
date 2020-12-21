@@ -1,5 +1,7 @@
 const rls = require('readline-sync')
 
+//resolved my test problem
+
 /**
  * Starts the game by prompting the user if they want to play
  * Calls either gameLoop() or quitGame()
