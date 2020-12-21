@@ -15,7 +15,6 @@
     "mock-stdin": "^1.0.0",
     "readline-sync": "^1.4.10"
   },
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rios-isabelle-farrah/Guessing-Game-cli-lab.git"
