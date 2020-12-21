@@ -37,12 +37,25 @@ const gameLoop = () => {
   console.log("I have a random number in mind")
   console.log("It's between 1 and 1000")
   console.log("You have 10 guesses total")
-  let guess = 565;
-  rls.questionInt()
-  if (guess = true)
-{
-
+  const answer = generateRandomNumber()
+  let guess =rls.question()
+for (let i =1; i <= 10; i++)
+if(guess === answer) {
+  console.log("Congrats! You got it right!")
+break;
 }
+else if(guess > answer) {
+  console.log("Your guess is too high")
+  gameLoop()
+}
+else if(guess < answer) {
+  console.log("Your guess is too low")
+  gameLoop()
+}
+//if guesses exceed 10
+else
+console.log("You lose!")
+quitGame()
 }
 
 
@@ -56,6 +69,7 @@ const generateRandomNumber = () => {
   let max = 1000;
     return Math.random() * (max - min) + min;
   }
+
 
 
 startGame()
