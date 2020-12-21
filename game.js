@@ -37,16 +37,31 @@ const quitGame = () => {
  * @returns {undefined}
  */
 const gameLoop = () => {
-   {
     console.clear();
     console.log("I have a random number in mind");
-    console.clear();
-    console.log("It's between 1 and 1000")
-    console.clear();
-    console.log("You have 10 guesses total")
-    console.clear();
+    console.log("It's between 1 and 1000");
+    console.log("You have 10 guesses total");
+    let randomNum = generateRandomNumber ();
+    
+for (let guessCount = 10; guessCount > 0; guessCount--) {
+  let guess = readLineSync.questionInt("What is you guess? \n");
+  if (guess === randomNum) {
+    console.log("Congrats! You got it right!");
+    if (readLineSync.keyInYN("Do you want to play again?")) {
+      gameLoop()
+    }else {
+      quitGame()
+    }
+  } else if(guess > randomNum) { 
+    console.log("Your guess is too high") 
+  } else {
+    console.log("Your guess is too low")
   }
 }
+console.log("You lose!")
+quitGame()
+}
+
 
 /***
  * Generates a random number
@@ -56,7 +71,8 @@ const gameLoop = () => {
 const generateRandomNumber = () => {
   let bottom = 1;
   let top = 1000;
-  return Math.floor(Math.random() * (top - bottom) + bottom);
+  let randomNumber = Math.floor(Math.random() * (top - bottom) + bottom);
+  return randomNumber;
 }
 
 startGame();
@@ -67,3 +83,4 @@ module.exports = {
   gameLoop,
   generateRandomNumber,
 };
+
