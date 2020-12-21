@@ -4,7 +4,7 @@
 
 Build a guessing game in the command line!
 
-Similar to the lesson, you will be building a guessing game. The main difference with this lab is the computer will generate a random number and it's up to you to guess it.
+Similar to the lesson, you will be building a guessing game! The main difference with this lab is the computer will generate a random number and it's up to you to guess it.
 
 ## Learning Objectives
 
