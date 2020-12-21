@@ -22,5 +22,6 @@
   "bugs": {
     "url": "https://github.com/rios-isabelle-farrah/Guessing-Game-cli-lab/issues"
   },
-  "homepage": "https://github.com/rios-isabelle-farrah/Guessing-Game-cli-lab#readme"
+  "homepage": "https://github.com/rios-isabelle-farrah/Guessing-Game-cli-lab#readme",
+  "devDependencies": {}
 }
