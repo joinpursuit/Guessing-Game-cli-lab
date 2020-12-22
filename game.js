@@ -14,7 +14,7 @@ const startGame = () => {
     console.log("Have a nice life!");
     quitGame();
   }
-}
+};
 
 /**
  * Logs "Goodbye!"
@@ -34,14 +34,15 @@ const quitGame = () => {
  *
  * @returns {undefined}
  */
-const gameLoop = (num) => {
+const gameLoop = () => {
   console.log("I have a random number in mind");
   console.log("It's between 1 and 1000");
   console.log("You have 10 guesses total");
   let randomNum = generateRandomNumber();
-  let guessCount = num;
-  let guessNumber = rls.questionInt("Go ahead. Take a guess ");
-  while (guessCount <= num) {
+  let guessCount = 10;
+
+  while (guessCount > 0) {
+    let guessNumber = rls.questionInt("Go ahead. Take a guess ");
     if (guessNumber === randomNum) {
       console.log("Congrats! You got it right!");
       if (rls.keyInYN("Would you like to play again?")) {
@@ -50,17 +51,18 @@ const gameLoop = (num) => {
         quitGame();
       }
     } else {
-      guessCount--
-      if(guessNumber > randomNum) {
-      console.log("Your guess is too high");
-     } else if (guessNumber < randomNum) {
-      console.log("Your guess is too low");
+      guessCount--;
+      if (guessNumber > randomNum) {
+        console.log("Your guess is too high");
+      } else if (guessNumber < randomNum) {
+        console.log("Your guess is too low");
+      }
     }
   }
-}
+
   console.log("You lose!");
   quitGame();
-}
+};
 
 /***
  * Generates a random number
@@ -70,8 +72,9 @@ const gameLoop = (num) => {
 const generateRandomNumber = () => {
   let max = 1000;
   let min = 1;
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+  let num = Math.floor(Math.random() * (max - min + 1)) + min;
+  return num;
+};
 
 startGame();
 
