@@ -1,5 +1,5 @@
 const rls = ({ keyInYN } = require('readline-sync'));
-
+//restarted the fork because the first one won't let me push.
 /**
  * Starts the game by prompting the user if they want to play
  * Calls either gameLoop() or quitGame()
