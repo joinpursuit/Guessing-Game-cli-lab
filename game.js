@@ -1,4 +1,4 @@
-const rls = require('readline-sync')
+const readlineSync = require('readline-sync')
 
 /**
  * Starts the game by prompting the user if they want to play
@@ -6,7 +6,18 @@ const rls = require('readline-sync')
  * 
  * @returns {undefined}
  */
+
 const startGame = () => {
+
+const play = readlineSync.question("Do you want to play? \n") 
+console.log("Let's start!")
+
+if (play === true) 
+gameLoop()
+else
+console.log('Have a nice life!')
+
+quitGame()
 
 }
 
@@ -16,7 +27,12 @@ const startGame = () => {
  * 
  * @returns {undefined}
  */
+
 const quitGame = () => {
+
+console.log('Goodbye!')
+
+process.exit()
 
 }
 
@@ -29,6 +45,13 @@ const quitGame = () => {
  */
 const gameLoop = () => {
 
+const playagain = readlineSync.question('Whould you like to play again?')
+console.log('Would you like to play again?')
+
+if (playagain === true)
+
+gameLoop ()
+
 }
 
 
@@ -39,7 +62,11 @@ const gameLoop = () => {
  */
 const generateRandomNumber = () => {
 
-}
+let bottom = 1
+
+let top = 1000
+
+Console.log('The number is ' + RandomNumber)
 
 startGame()
 
