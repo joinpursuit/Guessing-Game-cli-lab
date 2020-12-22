@@ -1,10 +1,10 @@
 [![Pursuit Logo](https://avatars1.githubusercontent.com/u/5825944?s=200&v=4)](https://pursuit.org)
 
-# Guessing Game Lab
+# Guessing Game Lab!
 
 Build a guessing game in the command line!
 
-Similar to the lesson, you will be building a guessing game. The main difference with this lab is the computer will generate a random number and it's up to you to guess it.
+Similar to the lesson, you will be building a guessing game! The main difference with this lab is the computer will generate a random number and it's up to you to guess it.
 
 ## Learning Objectives
 
