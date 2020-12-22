@@ -51,29 +51,32 @@ if (rls.keyInYN('Hey want to play?')) {
  * @returns {number} - a number between 1 and 1000
  */
 const generateRandomNumber = () => {
-	if (rls.keyInYN('I have a random number in mind')) console.log(`I have a random number in mind`);
-	console.log(`It's between 1 and 1000`);
-	let calls = 10;
-	console.log(`You have 10 guesses total`);
-	const play = () => {
-    let top = 1000;
-		while ((calls) => 10) {
-      const random = 9
-      const max = 1000
-			if (rls.keyInYN('I have a random number in mind')) {
-        let bottom = (Math.random() * 999);
-			console.log(`You have 10 guesses total`);
-				StartGame();
-			} else {
-				console.log("It's between 1 and 1000");
+	let number = (Math.random() * 1000);
+	return number;
+}
+// 	if (rls.keyInYN('I have a random number in mind')) console.log(`I have a random number in mind`);
+// 	console.log(`It's between 1 and 1000`);
+// 	let calls = 10;
+// 	console.log(`You have 10 guesses total`);
+// 	const play = () => {
+//     let top = 1000;
+// 		while ((calls) => 10) {
+//       const random = 9
+//       const max = 1000
+// 			if (rls.keyInYN('I have a random number in mind')) {
+//         let bottom = (Math.random() * 999);
+// 			console.log(`You have 10 guesses total`);
+// 				StartGame();
+// 			} else {
+// 				console.log("It's between 1 and 1000");
 
-				console.log('I have a random number in mind');
-			}
-			console.log(`It's between 1 and 1000`);
-		}
-	};
-	quitGame();
-};
+// 				console.log('I have a random number in mind');
+// 			}
+// 			console.log(`It's between 1 and 1000`);
+// 		}
+// 	};
+// 	quitGame();
+// };
 
 module.exports = {
 	startGame,
