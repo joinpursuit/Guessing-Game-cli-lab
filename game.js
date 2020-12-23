@@ -53,7 +53,7 @@ console.log("You have 10 guesses total");
  * @returns {number} - a number between 1 and 1000
  */
 const generateRandomNumber = () => {
-let number = Math.floor(Math.random() * (100 - 1) + 1);
+let number = Math.floor(Math.random() * (1000 - 1) + 1);
 return number
 }
 
