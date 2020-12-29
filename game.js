@@ -40,17 +40,19 @@ const quitGame = () => {
  * 
  * @returns {undefined}
  */
-let args = process.argv
+
 
 const gameLoop = () => {
   generateRandomNumber()
   console.log("I have a random number in mind")
   console.log("It's between 1 and 1000")
-  console.log("You have " + args[2] + " guesses total")
+  let args = rls.questionInt("How many gusses would you like? ")
+  
+  console.log("You have " + args + " guesses total")
 
   const randomNumber = generateRandomNumber()
 
-  for (numOfGuesses = args[2]; numOfGuesses >= 0; numOfGuesses--) {
+  for (numOfGuesses = args ; numOfGuesses >= 0; numOfGuesses--) {
 
     if (numOfGuesses === 0) {
       console.log("You loose!!")
@@ -73,7 +75,7 @@ const gameLoop = () => {
 
   }
 }
-console.log(process.argv);
+
 /***
  * Generates a random number 
  *
