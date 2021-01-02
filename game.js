@@ -40,7 +40,7 @@ const rls = require("readline-sync")
       console.log("It's between 1 and 1000")
       console.log("You have 10 guesses total")
       let guessCount = 10;
-      let ranNum = (10); //Math.floor(Math.random() * (1000 - 1) + 1);
+      let ranNum = generateRandomNumber();
       while (guessCount > 0 ){
         let guess = rls.question("Please take a guess \n");
           if (guess == ranNum){
@@ -61,8 +61,10 @@ const rls = require("readline-sync")
       guessCount--
       console.log( "you have " + guessCount + " guesses left")
       }
-    return console.log( "You lose!")
-    quitGame()
+     console.log( "You lose!")
+    quitGame();
+    return 
+    
 }
 
  
@@ -73,7 +75,7 @@ const rls = require("readline-sync")
  */
 const generateRandomNumber = () => {
   let randomNumber = 0 
-  randomNumber = Math.random() * (1000 - 1) + 1;
+  randomNumber = Math.floor(Math.random() * (1000 - 1) + 1);
   return randomNumber
 }
 
