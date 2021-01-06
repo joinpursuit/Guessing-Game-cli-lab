@@ -40,21 +40,26 @@ const gameLoop = () => {
   console.log("I have a random number in mind");
   console.log("It's between 1 and 1000");
   console.log("You have 10 guesses total");
-  const answer = generateRandomNumber();
-  let guess = rls.question();
-  for (let i = 1; i <= 10; i++)
-    if (guess === answer) {
-      console.log("Congrats! You got it right!");
-      break;
-    } else if (guess > answer) {
-      console.log("Your guess is too high");
-      gameLoop();
-    } else if (guess < answer) {
-      console.log("Your guess is too low");
-      gameLoop();
+  let guessCount = 10
+  let randomNum = generateRandomNumber();
+  while (guessCount > 0){
+    let guess = rls.questionInt("Take a guess");
+    if(guess === randomNum) {
+      console.log("You got it right!")
+      if(rls.keyInYN("Play again?")){
+        gameLoop()
+      }else{
+        quitGame()
+      }
+    }else{
+      guessCount--;
+      if(guess > randomNum){
+        console.log("Your guess is high")
+      }else if(guess < randomNum){
+        console.log("Your guess is low")
+      }
     }
-    else console.log("You lose!");
-  quitGame();
+  }
 };
 
 /***
