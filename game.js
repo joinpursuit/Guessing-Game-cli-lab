@@ -6,23 +6,24 @@ const rls = require('readline-sync')
  * 
  * @returns {undefined}
  */
-
- const startGame = () => {
-   if(rls.keyInYN("Do you want to start playing the game? Y or N")){
-     console.log("Let's start!")
-    gameLoop()
-  }else {
-    console.log("Have a nice life!")
-    quitGame()
-  }
-}
+const startGame = () => {
+  answer = rls.keyInYN("Do you want to start playing the game?");
+    if(answer === true) {
+        console.log("Let's start!")
+        gameLoop();
+    }else {
+        console.log("Have a nice life!")
+        quitGame();
+    } 
   
+}
+
 /**
  * Logs "Goodbye!"
  * Calls process.exit() to quit the game
  * 
  * @returns {undefined}
- */
+ */ 
   const quitGame = () => {
     console.log("Goodbye!")
     process.exit()
@@ -36,10 +37,40 @@ const rls = require('readline-sync')
  * @returns {undefined}
  */
   const gameLoop = () => {
-      console.log('I have a random number in mind')
-      console.log("It's between 1 and 1000")
-      console.log('You have 10 guesses total')
-}
+    let number = generateRandomNumber();
+    let numOfGuesses = 10;
+    console.log(`${numOfGuesses} remaining`);
+    console.log('I have a random number in mind')
+    console.log("It's between 1 and 1000")
+    console.log('You have 10 guesses total')
+
+    while (numOfGuesses > 0) {
+      let guess = rls.questionInt("What's your guess?\n"); // rls.question will make it a string
+      if (guess === number) {
+        console.log("Ohhh you're good! You win!");
+        continueYN = rls.keyInYN("Do you want to play again?\n");
+      if (continueYN === true) {
+        startGame();
+      } else {
+        quitGame();
+      }
+    } else{
+      numOfGuesses--;
+      if (numOfGuesses === 0) {
+        console.log("No more chances. You lose!\n");
+        console.log(`The number is ${number}!`)
+        quitGame();
+      }
+      if (guess > number) {
+        console.log("You guessed too high.\n");
+      } else {
+        console.log("You guessed too low.\n");
+      }
+console.log(`You have ${numOfGuesses} chances left.\n`);
+    }
+  }
+};
+    
 
  
 /***
@@ -48,8 +79,7 @@ const rls = require('readline-sync')
  * @returns {number} - a number between 1 and 1000
  */
 const generateRandomNumber = () => {
-  let randomNumber = 0 
-  randomNumber = Math.random() * (1000 - 1) + 1;
+  let randomNumber = Math.floor(Math.random() * 1000 ) + 1;
   return randomNumber
 }
 
