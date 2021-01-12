@@ -82,23 +82,23 @@ describe("gameLoop before game starts", () => {
   })
 })
 
-// describe("gameLoop in the loop", () => {
-//   let numOfGuesses = 10
-//   let mockQuestionInt = jest.spyOn(rls, 'questionInt').mockImplementation(n => n)
-//   let mockRand = jest.spyOn(game, 'generateRandomNumber').mockReturnValue(55)
-//   let mockConsole = jest.spyOn(global.console, 'log')
-//   let mockGameLoop = jest.spyOn(game, 'gameLoop').mockImplementation()
+describe("gameLoop in the loop", () => {
+  let numOfGuesses = 10
+  let mockQuestionInt = jest.spyOn(rls, 'questionInt').mockImplementation(n => n)
+  let mockRand = jest.spyOn(game, 'generateRandomNumber').mockReturnValue(55)
+  let mockConsole = jest.spyOn(global.console, 'log')
+  let mockGameLoop = jest.spyOn(game, 'gameLoop').mockImplementation()
 
-//   mockGameLoop()
-//   let random = mockRand()
-//   let tooHigh = mockQuestionInt(random * 2)
-//   let tooLow = mockQuestionInt(random / 2)
-//   let correct = random
+  mockGameLoop()
+  let random = mockRand()
+  let tooHigh = mockQuestionInt(random * 2)
+  let tooLow = mockQuestionInt(random / 2)
+  let correct = random
 
-//   test("should log 'n guesses remanining'", () => {
-//     expect(mockConsole).toBeCalledWith(`${numOfGuesses} remaining`)
-//   })
-//   // test("", () => {
+  test("should log 'n guesses remaining'", () => {
+    expect(mockConsole).toBeCalledWith(`${numOfGuesses} remaining`)
+  })
+  // test("", () => {
 
-//   // })
-// })
+  // })
+})
