@@ -7,7 +7,8 @@ const rls = require("readline-sync");
  * @returns {undefined}
  */
 const startGame = () => {
-  if (rls.keyInYN("Do you want to play a game with me?")) {
+  ansStart = rls.keyInYN("Do you want to play a game with me?");
+  if (ansStart === true) {
     console.log("Let's start!");
     gameLoop();
   } else {
@@ -31,35 +32,58 @@ const quitGame = () => {
  * Controls the flow of the game.
  * Should prompt the user to play again once all
  * guesses have been made or correct answer guessed
- *
+ ** console log "I have a random number in mind"
+* console log "It's between 1 and 1000"
+* console log "You have 10 guesses"
+* Generate a random number and store it in a variable
+* Take an input (guess) from the user using `rls.questionInt()`
+* If the guess is correct, log "Congrats! You got it right!"
+  * Prompt the user if they want to play again
+    * if Y, call `gameLoop()`
+    * if N, call `quitGame()`
+* If the guess is high, log "Your guess is too high"
+* If the guess is low, log "Your guess is too low"
+* Starting with 10, decrease the number of guesses after each attempt
+* If the number of guesses reaches 0, log "You lose!" and call `quitGame()`
+
+
  * @returns {undefined}
  */
-const gameLoop = (number) => {
-  let chances = 10;
-  let guess;
-  console.log("I have a random number in mind")
-  console.log("It's between 1 and 1000")
-  console.log("You have 10 guesses total")
-  if(chances = 0) {
-    console.log("No more chances. You lose!\n")
-      if (rls.keyInYN("Do you want to play again?\n" === true)){
+const gameLoop = () => {
+  let number = generateRandomNumber();
+  let numOfGuesses = 10;
+  console.log(`${numOfGuesses} remaining`);
+  console.log("I have a random number in mind");
+  console.log("It's between 1 and 1000");
+  console.log("You have 10 guesses total\n");
+
+  while (numOfGuesses > 0) {
+    let guess = rls.questionInt("What's your guess?\n"); // rls.question will make it a string
+
+    if (guess === number) {
+        console.log("Ohhh you're good! You win!");
+        continueYN = rls.keyInYN("Do you want to play again?\n");
+      if (continueYN === true) {
         startGame();
       } else {
         quitGame();
       }
-  } 
-  while(chances > 0) {
-    guess = rls.question("What's your guess?\n")
-    chances--;
-  }
-  if(guess === number) {
-    console.log("Ohhh you're good! You win!")  
-    if (rls.keyInYN("Do you want to play again?\n" === true)){
-      startGame();
     } else {
-      quitGame();
+      numOfGuesses--;
+      if (numOfGuesses === 0) {
+        console.log("No more chances. You lose!\n");
+        console.log(`The number is ${number}!`)
+        quitGame();
+      }
+      //too high or to low
+      if (guess > number) {
+        console.log("You guessed too high.\n");
+      } else {
+        console.log("You guessed too low.\n");
+      }
+      console.log(`You have ${numOfGuesses} chances left.\n`);
     }
-  } 
+  }
 };
 
 /***
@@ -80,3 +104,10 @@ module.exports = {
   gameLoop,
   generateRandomNumber,
 };
+
+// console.log(`${numOfGuesses} guesses remanining\n`)
+// tryAgain = rls.keyInYN(`Nope! That's' not it. Do you want to try again?\n`)
+
+// if (numOfGuesses === 0) {
+//   console.log("No more chances. You lose!\n");
+//   quitGame()
