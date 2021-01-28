@@ -41,7 +41,7 @@ const gameLoop = () => {
   console.log("I have a random number in mind");
   console.log("It's between 1 and 1000");
   console.log("You have 10 guesses total");
-  let randomNum = generateRandomNumber();
+  let randomNum = generateRandomNumber();// assigned outside the loop so that it doesn't generate a number every time it loops.
   let count = 10;
   while (count > 0) {
     let input = rls.questionInt(" please pick a number ");
@@ -54,14 +54,14 @@ const gameLoop = () => {
       }
     } else {
       count--;
-      if (input > randomNum) {
+      if (input > randomNum) { // set the input high or low based on the random number generated at the begining.
         console.log("Your guess is too high");
       } else if (input < randomNum) {
         console.log("Your guess is too low");
       }
     }
   }
-  console.log("You lose!");
+  console.log("You lose!");// this is extra.  I just wanted to play again :)
   if (rls.keyInYN("would you like to play again?")) {
     gameLoop();
   }else{
@@ -78,7 +78,7 @@ const gameLoop = () => {
 const generateRandomNumber = () => {
   return Math.floor(Math.random() * 1001);
 };
-startGame();
+startGame(); // for some reason this needs to be here in order for the game to start;
 
 module.exports = {
   startGame,
